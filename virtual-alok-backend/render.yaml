@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: virtual-alok-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: LLAMA_API_KEY
+        scope: run
+        value: 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
