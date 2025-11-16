@@ -7,13 +7,11 @@ export default defineConfig({
   server: {
     port: 5173,
     strictPort: false,
-    host: true,
-    middlewareMode: false
+    host: true
   },
   build: {
     target: 'ES2020',
-    minify: 'terser',
-    cssMinify: true,
+    minify: 'esbuild',
     sourcemap: false,
     reportCompressedSize: true,
     rollupOptions: {
@@ -26,16 +24,6 @@ export default defineConfig({
         chunkFileNames: 'js/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash][extname]'
       }
-    },
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
     }
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom'],
-    exclude: []
   }
 })
